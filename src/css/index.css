@@ -50,6 +50,20 @@ img {
 }
 
 h1 {
+    font-family: 'Inter Bold', 'Inter', Helvetica, sans-serif;
     font-size: 2em;
 }
 
+/* TABLETS */
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+    h1 {
+        font-size: 2.5em;
+    }
+}
+
+/* PC */
+@media screen and (min-width: 1025px) {
+    h1 {
+        font-size: 3em;
+    }
+}
