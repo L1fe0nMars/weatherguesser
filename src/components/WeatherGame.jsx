@@ -1,6 +1,9 @@
 import { useState } from 'react';
+import Settings from './Settings';
 import WeatherCard from './WeatherCard';
 import GameResult from './GameResult';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGear } from '@fortawesome/free-solid-svg-icons';
 
 const NUM_CITIES = 209579;
 const cityList = require('../city-list.json');
@@ -13,6 +16,7 @@ const WeatherGame = () => {
     const [city, setCity] = useState([]);
     const [showTemp, setShowTemp] = useState(false);
     const [userGuess, setUserGuess] = useState('');
+    const [showSettings, setShowSettings] = useState(false);
 
     const getWeather = async (city) => {
         const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?id=${city.id}&appid=045d974fe8c45d8b0e0bb4c31d908098&units=imperial`);
@@ -21,6 +25,14 @@ const WeatherGame = () => {
         data.state = city.state;
         setCity(data);
         setShowTemp(false);
+    }
+
+    const openSettings = () => {
+        setShowSettings(true);
+    }
+
+    const closeSettings = () => {
+        setShowSettings(false);
     }
 
     const onClick = () => {
@@ -39,6 +51,12 @@ const WeatherGame = () => {
 
     return (
         <div>
+            <button className="settings-btn" onClick={openSettings}>
+                <FontAwesomeIcon icon={faGear} className="settings-icon" />
+            </button>
+
+            {showSettings && <Settings closeSettings={closeSettings} />}
+
             {!city.sys && <h1>WeatherGuesser</h1>}
             {!city.sys && <button onClick={onClick}>Play</button>}
             
