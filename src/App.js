@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { SaveDataProvider } from './context/SaveDataContext';
 import WeatherGame from './components/WeatherGame';
 import Footer from './components/Footer';
 import './css/App.css';
@@ -6,9 +7,10 @@ import './css/App.css';
 const App = () => {
     return (
         <div className="App">
-            
-            <WeatherGame />
-            <Footer />
+            <SaveDataProvider>
+                <WeatherGame />
+                <Footer />
+            </SaveDataProvider>
         </div>
     );
 }

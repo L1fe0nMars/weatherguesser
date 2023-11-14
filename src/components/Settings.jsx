@@ -1,11 +1,16 @@
 import { useContext } from 'react';
-//import { GlobalContext } from '../context/GlobalState';
+import { SaveDataContext } from '../context/SaveDataContext';
 
-const Settings = () => {
-    //const { settings } = useContext(GlobalContext);
+const Settings = (props) => {
+    const { saveData } = useContext(SaveDataContext);
     
     return (
         <div>
+            <h1>Settings</h1>
+            <button onClick={props.closeSettings}>
+                &times;
+            </button>
+            
             <form>
                 <label>
                     Units
