@@ -1,6 +1,10 @@
+import { useContext } from 'react';
 import { countryCodeToName, stateCodeToName } from "../Utils";
+import { SaveDataContext } from '../context/SaveDataContext';
 
 const WeatherCard = (props) => {
+    const { data } = useContext(SaveDataContext);
+
     const city = props.city;
     const country = countryCodeToName[city.sys.country];
     const temp = Math.round(city.main.temp);
@@ -15,7 +19,7 @@ const WeatherCard = (props) => {
     return (
         <div>
             {
-                city.state.length > 0
+                state.length > 0
                 ? (
                     <h1>{`${city.name}, ${state}, ${country}`}</h1>
                 )
@@ -27,10 +31,10 @@ const WeatherCard = (props) => {
             {
                 props.showTemp
                 ? (
-                    <h2>{`${temp}°F`}</h2>
+                    <h2>{`${temp}°${data.unitTemperature}`}</h2>
                 )
                 : (
-                    <h2>{`???°F`}</h2>
+                    <h2>{`???°${data.unitTemperature}`}</h2>
                 )
             }
 

@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { SaveDataContext } from '../context/SaveDataContext';
 import Settings from './Settings';
 import WeatherCard from './WeatherCard';
 import GameResult from './GameResult';
@@ -13,17 +14,19 @@ const getRandomCity = () => {
 }
 
 const WeatherGame = () => {
+    const { data } = useContext(SaveDataContext);
+
     const [city, setCity] = useState([]);
     const [showTemp, setShowTemp] = useState(false);
     const [userGuess, setUserGuess] = useState('');
     const [showSettings, setShowSettings] = useState(false);
 
     const getWeather = async (city) => {
-        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?id=${city.id}&appid=045d974fe8c45d8b0e0bb4c31d908098&units=imperial`);
-        const data = await response.json();
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?id=${city.id}&appid=045d974fe8c45d8b0e0bb4c31d908098&units=${data.unitType}`);
+        const weatherData = await response.json();
         
-        data.state = city.state;
-        setCity(data);
+        weatherData.state = city.state;
+        setCity(weatherData);
         setShowTemp(false);
     }
 

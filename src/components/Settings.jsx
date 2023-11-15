@@ -2,7 +2,21 @@ import { useContext } from 'react';
 import { SaveDataContext } from '../context/SaveDataContext';
 
 const Settings = (props) => {
-    const { saveData } = useContext(SaveDataContext);
+    const { data, saveData } = useContext(SaveDataContext);
+
+    const onCheckboxChange = (event) => {
+        const { name, checked } = event.target;
+        
+        if (name === 'unitType') {
+            saveData({ unitType: checked ? 'imperial' : 'metric', unitTemperature: checked ? 'F' : 'C' });
+        }
+        else if (name === 'timeFormat') {
+            saveData({ timeFormat: checked ? '12hr' : '24hr' });
+        }
+        else {
+            saveData({ [name]: checked });
+        }
+    }
     
     return (
         <div>
@@ -16,7 +30,18 @@ const Settings = (props) => {
                     Units
                     <input 
                         type="checkbox"
-
+                        name="unitType"
+                        checked={data.unitType === 'imperial'}
+                        onChange={onCheckboxChange}
+                    />
+                </label>
+                <label>
+                    Time Format
+                    <input 
+                        type="checkbox"
+                        name="timeFormat"
+                        checked={data.timeFormat === '12hr'}
+                        onChange={onCheckboxChange}
                     />
                 </label>
                 

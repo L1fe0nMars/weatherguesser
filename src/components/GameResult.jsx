@@ -1,10 +1,15 @@
+import { useContext } from 'react';
+import { SaveDataContext } from '../context/SaveDataContext';
+
 const GameResult = (props) => {
+    const { data } = useContext(SaveDataContext);
+
     const temp = Math.round(props.city.main.temp);
     const userGuess = props.userGuess;
     
     return (
         <div>
-            <h2>{`${userGuess}°F`}</h2>
+            <h2>{`${userGuess}°${data.unitTemperature}`}</h2>
             {
                 userGuess === temp
                 ? (
