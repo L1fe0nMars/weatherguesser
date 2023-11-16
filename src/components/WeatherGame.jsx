@@ -74,9 +74,9 @@ const WeatherGame = () => {
                 <button onClick={onClick}>Play</button>
             </div>}
             
-            {city.sys && <div>
+            {city.sys && <div className="game">
                 <WeatherCard city={city} showTemp={showTemp} />
-                <form onSubmit={onSubmit}>
+                {!showTemp && <form onSubmit={onSubmit}>
                     <div className="form-control">
                         <label htmlFor="temperature">
                             Guess the temperature
@@ -84,10 +84,10 @@ const WeatherGame = () => {
                         <input type="text" value={userGuess} onChange={handleInput} />
                     </div>
                     <button className="btn">Submit Answer</button>
-                </form>
+                </form>}
             </div>}
             
-            {showTemp && <div>
+            {showTemp && <div className="result">
                 <GameResult city={city} userGuess={userGuess} />
                 <button onClick={onClick}>Play Again</button>
             </div>}

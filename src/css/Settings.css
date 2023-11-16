@@ -1,0 +1,42 @@
+.settings-bg {
+    background: rgba(0, 0, 0, 0.5);
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100%;
+    width: 100%;
+}
+
+.settings {
+    margin: 5em auto;
+    padding: 0.5em 1em 1em 1em;
+    max-width: 30em;
+    background: linear-gradient(to bottom left, var(--bg-light), var(--bg-dark));
+    border-radius: 1em;
+    border: solid 2px var(--line-color);
+    text-align: left;
+}
+
+.close {
+    float: right;
+    margin: 0 0.25em;
+    right: 0;
+    font-size: 3em;
+}
+
+.settings h1 {
+    margin-top: 0.25em;
+}
+
+.settings h2 {
+    margin: 1em auto;
+}
+
+.form-setting {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0.5em auto;
+}

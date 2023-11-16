@@ -1,5 +1,10 @@
 :root {
     --off-white: rgb(245, 245, 245);
+    --bg-light: #008091;
+    --bg-dark: #184883;
+    --btn-bg: #003270;
+    --link: #92f1fd;
+    --line-color: #74a9b1;
 }
 
 @font-face { 
@@ -46,11 +51,19 @@ button {
     cursor: pointer;
 }
 
-button:not(.settings-btn) {
+button:not(.settings-btn, .close) {
     padding: 0.5em 1em;
-    border: solid 2px var(--off-white);
+    background: var(--btn-bg);
+    border: solid 2px var(--btn-bg);
     border-radius: 2em;
     font-size: 1.25em;
+}
+
+hr {
+    background-color: var(--line-color);
+    border: none;
+    height: 1px;
+    margin: 1em auto;
 }
 
 img {
@@ -58,8 +71,12 @@ img {
 }
 
 h1 {
-    font-family: 'Inter Bold', 'Inter', Helvetica, sans-serif;
     font-size: 2em;
+}
+
+h1,
+h2 {
+    font-family: 'Inter Bold', 'Inter', Helvetica, sans-serif;
 }
 
 /* TABLETS */

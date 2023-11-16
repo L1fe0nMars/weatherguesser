@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { countryCodeToName, stateCodeToName } from "../Utils";
 import { SaveDataContext } from '../context/SaveDataContext';
+import '../css/WeatherCard.css';
 
 const getLocalTime = (city, timeFormat) => {
     const unixTimestamp = city.dt;
@@ -27,7 +28,7 @@ const WeatherCard = (props) => {
     const description = desc.charAt(0).toUpperCase() + desc.slice(1);
 
     return (
-        <div>
+        <div className="weather-card">
             {
                 state.length > 0
                 ? (
@@ -37,19 +38,24 @@ const WeatherCard = (props) => {
                     <h1>{`${city.name}, ${country}`}</h1>
                 )
             }
-            
-            {
-                props.showTemp
-                ? (
-                    <h2>{`${temp}°${data.unitTemperature}`}</h2>
-                )
-                : (
-                    <h2>{`???°${data.unitTemperature}`}</h2>
-                )
-            }
 
-            <img src={`https://openweathermap.org/img/wn/${city.weather[0].icon}@2x.png`} alt="Weather icon" />
-            <p>{description}</p>
+            <div className="weather-info-main">
+                <div className="weather-info-pic">
+                    <img src={`https://openweathermap.org/img/wn/${city.weather[0].icon}@2x.png`} alt="Weather icon" />
+                    <p className="description">{description}</p>
+                </div>
+
+                {
+                    props.showTemp
+                    ? (
+                        <h2>{`${temp}°${data.unitTemperature}`}</h2>
+                    )
+                    : (
+                        <h2>{`???°${data.unitTemperature}`}</h2>
+                    )
+                }
+            </div>
+
             {data.includeHighLow && <div>
                 <p>{`High: ${tempMax}°${data.unitTemperature}`}</p>
                 <p>{`Low: ${tempMin}°${data.unitTemperature}`}</p>

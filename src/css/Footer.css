@@ -1,3 +1,15 @@
 footer {
-    padding: 3em;
+    padding: 2em;
+    font-size: 1em;
+}
+
+footer a {
+    color: var(--link);
+}
+
+/* PC + TABLETS */
+@media screen and (min-width: 481px) {
+    footer a:hover {
+        text-decoration: underline;
+    }
 }

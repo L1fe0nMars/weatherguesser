@@ -20,55 +20,68 @@ const Settings = (props) => {
     }
     
     return (
-        <div className="settings">
-            <h1>Settings</h1>
-            <button onClick={props.closeSettings}>
-                &times;
-            </button>
+        <div className="settings-bg">
+            <div className="settings">
+                <button className="close" onClick={props.closeSettings}>
+                    &times;
+                </button>
 
-            <h2>General</h2>
-            <form>
-                <label>
-                    Units
-                    <input 
-                        type="checkbox"
-                        name="unitType"
-                        checked={data.unitType === 'imperial'}
-                        onChange={onCheckboxChange}
-                    />
-                </label>
-                <label>
-                    Time Format
-                    <input 
-                        type="checkbox"
-                        name="timeFormat"
-                        checked={data.timeFormat === '12hr'}
-                        onChange={onCheckboxChange}
-                    />
-                </label>
-            </form>
+                <h1>Settings</h1>
 
-            <h2>Game</h2>
-            <form>
-                <label>
-                    Include Decimals
-                    <input 
-                        type="checkbox"
-                        name="includeDecimals"
-                        checked={data.includeDecimals}
-                        onChange={onCheckboxChange}
-                    />
-                </label>
-                <label>
-                    Include High & Low Temperature
-                    <input 
-                        type="checkbox"
-                        name="includeHighLow"
-                        checked={data.includeHighLow}
-                        onChange={onCheckboxChange}
-                    />
-                </label>
-            </form>
+                <h2>General</h2>
+                <form>
+                    <label className="form-setting">
+                        Units
+                        <input 
+                            type="checkbox"
+                            name="unitType"
+                            checked={data.unitType === 'imperial'}
+                            onChange={onCheckboxChange}
+                        />
+                        {/*<label data-on="Imperial" data-off="Metric"></label>*/}
+                    </label>
+
+                    <hr />
+
+                    <label className="form-setting">
+                        Time Format
+                        <input 
+                            type="checkbox"
+                            name="timeFormat"
+                            checked={data.timeFormat === '12hr'}
+                            onChange={onCheckboxChange}
+                        />
+                        {/*<label data-on="12hr" data-off="24hr"></label>*/}
+                    </label>
+                </form>
+
+                <h2>Game</h2>
+                <form>
+                    <label className="form-setting">
+                        Include Decimals
+                        <input 
+                            type="checkbox"
+                            name="includeDecimals"
+                            checked={data.includeDecimals}
+                            onChange={onCheckboxChange}
+                        />
+                        {/*<label data-on="Yes" data-off="No"></label>*/}
+                    </label>
+
+                    <hr />
+
+                    <label className="form-setting">
+                        Include High & Low Temperature
+                        <input 
+                            type="checkbox"
+                            name="includeHighLow"
+                            checked={data.includeHighLow}
+                            onChange={onCheckboxChange}
+                        />
+                        {/*<label data-on="Yes" data-off="No"></label>*/}
+                    </label>
+                </form>
+            </div>
         </div>
     );
 }

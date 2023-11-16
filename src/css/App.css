@@ -1,6 +1,6 @@
 .App {
     text-align: center;
-    background: radial-gradient(#007b8b, #184883);
+    background: linear-gradient(to bottom left, var(--bg-light) 25%, var(--bg-dark));
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -24,28 +24,62 @@ main {
 }
 
 .main {
-    padding-top: 3em;
+    padding-top: 4em;
 }
 
 .main h1 {
-    font-size: 4em;
+    font-size: 2.1em;
 }
 
 .main p {
     margin: 0 auto;
+    padding: 0 1em;
     font-size: 1.25em;
     line-height: 1.5em;
-    max-width: 38em;
+    max-width: 40em;
+    text-align: justify;
 }
 
 .main button {
-    margin: 1em auto;
+    margin: 2em auto;
 }
 
 .main h1 {
     padding: 1em;
 }
 
-.App-link {
-    color: #61dafb;
+.game {
+    padding: 4em 1em;
+}
+
+form label {
+    font-size: 1.25em;
+}
+
+.game input {
+    padding-left: 0.3em;
+    color: var(--off-white);
+    width: 3.5em;
+    font-size: 16px;
+    background-color: var(--bg-dark);
+    border: 1px solid var(--bg-light);
+    border-radius: 5px;
+}
+
+/* TABLETS */
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+    .main h1 {
+        font-size: 3em;
+    }
+}
+
+/* PC */
+@media screen and (min-width: 1025px) {
+    .main h1 {
+        font-size: 4em;
+    }
+
+    .main p {
+        text-align: center;
+    }
 }
