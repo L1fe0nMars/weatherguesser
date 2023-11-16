@@ -44,6 +44,14 @@ const WeatherGame = () => {
         setUserGuess('');
     }
 
+    const handleInput = (event) => {
+        const value = event.target.value;
+        
+        if (!isNaN(value)) {
+            setUserGuess(value);
+        }
+    }
+
     const onSubmit = (event) => {
         event.preventDefault();
 
@@ -53,30 +61,37 @@ const WeatherGame = () => {
     }
 
     return (
-        <div>
+        <main>
             <button className="settings-btn" onClick={openSettings}>
                 <FontAwesomeIcon icon={faGear} className="settings-icon" />
             </button>
 
             {showSettings && <Settings closeSettings={closeSettings} />}
 
-            {!city.sys && <h1>WeatherGuesser</h1>}
-            {!city.sys && <button onClick={onClick}>Play</button>}
+            {!city.sys && <div className="main">
+                <h1>WeatherGuesser</h1>
+                <p>Put your weather knowledge to the test by guessing the current temperature of a random city from anywhere in the world.</p>
+                <button onClick={onClick}>Play</button>
+            </div>}
             
-            {city.sys && <WeatherCard city={city} showTemp={showTemp} />}
-            {city.sys && !showTemp && <form onSubmit={onSubmit}>
-                <div className="form-control">
-                    <label htmlFor="temperature">
-                        Guess the temperature
-                    </label>
-                    <input type="number" value={userGuess} onChange={(event) => setUserGuess(Math.round(event.target.value))} />
-                </div>
-                <button className="btn">Submit Answer</button>
-            </form>}
+            {city.sys && <div>
+                <WeatherCard city={city} showTemp={showTemp} />
+                <form onSubmit={onSubmit}>
+                    <div className="form-control">
+                        <label htmlFor="temperature">
+                            Guess the temperature
+                        </label>
+                        <input type="text" value={userGuess} onChange={handleInput} />
+                    </div>
+                    <button className="btn">Submit Answer</button>
+                </form>
+            </div>}
             
-            {showTemp && <GameResult city={city} userGuess={userGuess} />}
-            {showTemp && <button onClick={onClick}>Play Again</button>}
-        </div>
+            {showTemp && <div>
+                <GameResult city={city} userGuess={userGuess} />
+                <button onClick={onClick}>Play Again</button>
+            </div>}
+        </main>
     );
 }
 

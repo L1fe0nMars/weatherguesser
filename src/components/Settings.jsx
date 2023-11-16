@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { SaveDataContext } from '../context/SaveDataContext';
+import '../css/Settings.css';
 
 const Settings = (props) => {
     const { data, saveData } = useContext(SaveDataContext);
@@ -19,12 +20,13 @@ const Settings = (props) => {
     }
     
     return (
-        <div>
+        <div className="settings">
             <h1>Settings</h1>
             <button onClick={props.closeSettings}>
                 &times;
             </button>
-            
+
+            <h2>General</h2>
             <form>
                 <label>
                     Units
@@ -44,7 +46,28 @@ const Settings = (props) => {
                         onChange={onCheckboxChange}
                     />
                 </label>
-                
+            </form>
+
+            <h2>Game</h2>
+            <form>
+                <label>
+                    Include Decimals
+                    <input 
+                        type="checkbox"
+                        name="includeDecimals"
+                        checked={data.includeDecimals}
+                        onChange={onCheckboxChange}
+                    />
+                </label>
+                <label>
+                    Include High & Low Temperature
+                    <input 
+                        type="checkbox"
+                        name="includeHighLow"
+                        checked={data.includeHighLow}
+                        onChange={onCheckboxChange}
+                    />
+                </label>
             </form>
         </div>
     );

@@ -19,14 +19,12 @@ const WeatherCard = (props) => {
 
     const city = props.city;
     const country = countryCodeToName[city.sys.country];
-    const temp = Math.round(city.main.temp);
+    const state = stateCodeToName[city.state] || '';
+    const temp = data.includeDecimals ? city.main.temp.toFixed(1) : Math.round(city.main.temp);
+    const tempMax = data.includeDecimals ? city.main.temp_max.toFixed(1) : Math.round(city.main.temp_max);
+    const tempMin = data.includeDecimals ? city.main.temp_min.toFixed(1) : Math.round(city.main.temp_min);
     const desc = city.weather[0].description;
     const description = desc.charAt(0).toUpperCase() + desc.slice(1);
-    let state = props.city.state;
-
-    if (stateCodeToName[state]) {
-        state = stateCodeToName[state];
-    }
 
     return (
         <div>
@@ -52,6 +50,10 @@ const WeatherCard = (props) => {
 
             <img src={`https://openweathermap.org/img/wn/${city.weather[0].icon}@2x.png`} alt="Weather icon" />
             <p>{description}</p>
+            {data.includeHighLow && <div>
+                <p>{`High: ${tempMax}°${data.unitTemperature}`}</p>
+                <p>{`Low: ${tempMin}°${data.unitTemperature}`}</p>
+            </div>}
             <p>{`Humidity: ${city.main.humidity}%`}</p>
             <p>{`Local Time: ${getLocalTime(city, data.timeFormat)}`}</p>
         </div>

@@ -27,6 +27,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    color: var(--off-white);
 }
 
 body {
@@ -43,6 +44,13 @@ a {
 button {
     all: unset;
     cursor: pointer;
+}
+
+button:not(.settings-btn) {
+    padding: 0.5em 1em;
+    border: solid 2px var(--off-white);
+    border-radius: 2em;
+    font-size: 1.25em;
 }
 
 img {
