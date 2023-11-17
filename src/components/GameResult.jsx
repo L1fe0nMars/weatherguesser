@@ -14,7 +14,7 @@ const GameResult = (props) => {
             {
                 userGuess === temp
                 ? (
-                    <h3>You got it!</h3>
+                    <h3 className="correct">You got it!</h3>
                 )
                 : (
                     Math.abs(userGuess - temp) <= 1

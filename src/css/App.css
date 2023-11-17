@@ -96,6 +96,10 @@ main {
     color: var(--cold);
 }
 
+.correct {
+    color: var(--correct);
+}
+
 .result button {
     margin: 2em auto 0 auto;
 }

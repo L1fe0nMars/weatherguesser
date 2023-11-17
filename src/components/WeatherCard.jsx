@@ -26,7 +26,7 @@ const WeatherCard = (props) => {
     const tempMin = data.includeDecimals ? city.main.temp_min.toFixed(1) : Math.round(city.main.temp_min);
     const desc = city.weather[0].description;
     const description = desc.charAt(0).toUpperCase() + desc.slice(1);
-
+    console.log(temp);
     return (
         <div className="weather-card">
             {
