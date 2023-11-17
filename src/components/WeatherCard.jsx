@@ -56,7 +56,7 @@ const WeatherCard = (props) => {
                 }
             </div>
 
-            {data.includeHighLow && <div>
+            {data.includeHighLow && <div className="high-low">
                 <p>{`High: ${tempMax}°${data.unitTemperature}`}</p>
                 <p>{`Low: ${tempMin}°${data.unitTemperature}`}</p>
             </div>}

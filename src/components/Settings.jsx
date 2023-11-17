@@ -32,26 +32,30 @@ const Settings = (props) => {
                 <form>
                     <label className="form-setting">
                         Units
-                        <input 
-                            type="checkbox"
-                            name="unitType"
-                            checked={data.unitType === 'imperial'}
-                            onChange={onCheckboxChange}
-                        />
-                        {/*<label data-on="Imperial" data-off="Metric"></label>*/}
+                        <div className="setting-input">
+                            <input 
+                                type="checkbox"
+                                name="unitType"
+                                checked={data.unitType === 'imperial'}
+                                onChange={onCheckboxChange}
+                            />
+                            <span>Imperial</span>
+                        </div>
                     </label>
 
                     <hr />
 
                     <label className="form-setting">
                         Time Format
-                        <input 
-                            type="checkbox"
-                            name="timeFormat"
-                            checked={data.timeFormat === '12hr'}
-                            onChange={onCheckboxChange}
-                        />
-                        {/*<label data-on="12hr" data-off="24hr"></label>*/}
+                        <div className="setting-input">
+                            <input 
+                                type="checkbox"
+                                name="timeFormat"
+                                checked={data.timeFormat === '12hr'}
+                                onChange={onCheckboxChange}
+                            />
+                            <span>12hr</span>
+                        </div>
                     </label>
                 </form>
 

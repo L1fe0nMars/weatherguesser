@@ -1,7 +1,7 @@
 .settings-bg {
     background: rgba(0, 0, 0, 0.5);
     margin: 0 auto;
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -12,6 +12,7 @@
 .settings {
     margin: 5em auto;
     padding: 0.5em 1em 1em 1em;
+    width: 90%;
     max-width: 30em;
     background: linear-gradient(to bottom left, var(--bg-light), var(--bg-dark));
     border-radius: 1em;
@@ -34,9 +35,19 @@
     margin: 1em auto;
 }
 
+.settings input,
+.setting-input span {
+    cursor: pointer;
+}
+
 .form-setting {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin: 0.5em auto;
+}
+
+.setting-input span {
+    padding-left: 0.25em;
+    font-size: 1em;
 }

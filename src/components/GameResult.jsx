@@ -9,6 +9,7 @@ const GameResult = (props) => {
     
     return (
         <div>
+            <h1>Your Guess</h1>
             <h2>{`${userGuess}°${data.unitTemperature}`}</h2>
             {
                 userGuess === temp
@@ -23,10 +24,10 @@ const GameResult = (props) => {
                     : (
                         userGuess > temp
                         ? (
-                            <h3>Too hot</h3>
+                            <h3 className="hot">Too hot</h3>
                         )
                         : (
-                            <h3>Too cold</h3>
+                            <h3 className="cold">Too cold</h3>
                         )
                     )
                 )
