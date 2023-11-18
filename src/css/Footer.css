@@ -1,10 +1,14 @@
 footer {
-    padding: 2em 1em;
+    padding: 2em 1em 1em 1em;
     font-size: 1em;
 }
 
 footer a {
     color: var(--link);
+}
+
+.api-link {
+    margin-bottom: 0.5em;
 }
 
 /* PC + TABLETS */
