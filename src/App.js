@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { SaveDataProvider } from './context/SaveDataContext';
 import WeatherGame from './components/WeatherGame';
 import Footer from './components/Footer';
