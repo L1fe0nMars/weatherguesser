@@ -62,7 +62,7 @@ const WeatherGame = () => {
 
     return (
         <main>
-            <button className="settings-btn" onClick={openSettings}>
+            <button className="settings-btn" onClick={openSettings} aria-label="Settings">
                 <FontAwesomeIcon icon={faGear} className="settings-icon" />
             </button>
 
