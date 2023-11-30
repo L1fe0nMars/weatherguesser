@@ -3,6 +3,7 @@
     --bg-light: #008091;
     --bg-dark: #184883;
     --btn-bg: #003270;
+    --btn-bg-hover: #062c5a;
     --link: #92f1fd;
     --line-color: #74a9b1;
     --hot: #ff8411;
@@ -62,6 +63,11 @@ button:not(.settings-btn, .close) {
     border: solid 2px var(--btn-bg);
     border-radius: 2em;
     font-size: 1.25em;
+}
+
+button:not(.settings-btn, .close):hover {
+    background: var(--btn-bg-hover);
+    border-color: var(--btn-bg-hover);
 }
 
 hr {

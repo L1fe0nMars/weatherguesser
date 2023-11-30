@@ -30,12 +30,8 @@ const WeatherGame = () => {
         setShowTemp(false);
     }
 
-    const openSettings = () => {
-        setShowSettings(true);
-    }
-
-    const closeSettings = () => {
-        setShowSettings(false);
+    const toggleSettingsMenu = (display) => {
+        setShowSettings(display);
     }
 
     const onClick = () => {
@@ -62,11 +58,11 @@ const WeatherGame = () => {
 
     return (
         <main>
-            <button className="settings-btn" onClick={openSettings} aria-label="Settings">
+            <button className="settings-btn" onClick={() => toggleSettingsMenu(true)} aria-label="Settings">
                 <FontAwesomeIcon icon={faGear} className="settings-icon" />
             </button>
 
-            {showSettings && <Settings closeSettings={closeSettings} />}
+            {showSettings && <Settings closeSettings={() => toggleSettingsMenu(false)} />}
 
             {!city.sys && <div className="main">
                 <h1>WeatherGuesser</h1>
