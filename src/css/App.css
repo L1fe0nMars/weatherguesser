@@ -28,6 +28,18 @@ main {
     transform: rotate(180deg);
 }
 
+.loading {
+    margin: 0 auto;
+    margin-top: 10em;
+    border: 14px solid var(--bg-dark);
+    border-radius: 50%;
+    border-top: 14px solid var(--spinner);
+    width: 5em;
+    height: 5em;
+    animation: spin 1s linear infinite;
+    -webkit-animation: spin 1s linear infinite;
+}
+
 .main {
     padding-top: 4em;
 }
@@ -107,6 +119,25 @@ main {
 
 .result button {
     margin: 2em auto 0 auto;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+ }
+  
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 /* TABLETS */
