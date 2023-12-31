@@ -84,7 +84,7 @@ main {
     width: 3em;
     font-size: 1.25em;
     background-color: #05132051;
-    border: 1px solid var(--bg-light);
+    border: 1px solid var(--line-color);
     border-radius: 5px;
 }
 

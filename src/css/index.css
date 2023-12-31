@@ -80,6 +80,8 @@ hr {
 
 img {
     user-select: none;
+    margin: 0 auto;
+    display: block;
 }
 
 h1 {
