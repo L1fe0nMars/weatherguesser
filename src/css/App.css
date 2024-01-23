@@ -53,8 +53,8 @@ main {
     padding: 0 1em;
     font-size: 1.25em;
     line-height: 1.5em;
-    max-width: 40em;
-    text-align: justify;
+    max-width: 38em;
+    text-align: left;
 }
 
 .main button {
@@ -111,6 +111,11 @@ main {
 
 .cold {
     color: var(--cold);
+}
+
+.so-close {
+    color: var(--so-close);
+    font-style: italic;
 }
 
 .correct {
