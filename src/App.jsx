@@ -1,4 +1,3 @@
-import React from 'react';
 import { SaveDataProvider } from './context/SaveDataContext';
 import WeatherGame from './components/WeatherGame';
 import Footer from './components/Footer';
