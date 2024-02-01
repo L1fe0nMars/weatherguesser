@@ -1,6 +1,5 @@
 import { useState, useContext } from 'react';
 import { SaveDataContext } from '../context/SaveDataContext';
-import cityList from '../city-list.json';
 import Settings from './Settings';
 import WeatherCard from './WeatherCard';
 import GameResult from './GameResult';
@@ -8,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGear } from '@fortawesome/free-solid-svg-icons';
 
 const NUM_CITIES = 209579;
+const cityList = require('../city-list.json');
 
 const getRandomCity = () => {
     return cityList[Math.floor(Math.random() * NUM_CITIES)];
