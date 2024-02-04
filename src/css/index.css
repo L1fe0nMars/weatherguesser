@@ -1,4 +1,7 @@
 :root {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-weight: 400;
+
     --off-white: rgb(245, 245, 245);
     --bg-light: #008091;
     --bg-dark: #184883;
@@ -13,28 +16,25 @@
     --correct: #00e700;
 }
 
-@font-face { 
-    font-family: 'Inter'; 
-    src: url("/fonts/Inter/Inter-Regular.ttf");
+/* inter-regular - latin */
+@font-face {
+    font-display: swap;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    src: url('/fonts/inter-v13-latin/inter-v13-latin-regular.woff2') format('woff2');
 }
 
-@font-face { 
-    font-family: 'Inter Medium'; 
-    src: url("/fonts/Inter/Inter-Medium.ttf");
-}
-
-@font-face { 
-    font-family: 'Inter Semibold'; 
-    src: url("/fonts/Inter/Inter-SemiBold.ttf");
-}
-
-@font-face { 
-    font-family: 'Inter Bold'; 
-    src: url("/fonts/Inter/Inter-Bold.ttf");
+/* inter-700 - latin */
+@font-face {
+    font-display: swap;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    src: url('/fonts/inter-v13-latin/inter-v13-latin-700.woff2') format('woff2');
 }
 
 * {
-    font-family: 'Inter', Helvetica, sans-serif;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -55,7 +55,7 @@ a {
 button {
     all: unset;
     cursor: pointer;
-    font-weight: bold;
+    font-weight: 700;
     letter-spacing: 1px;
 }
 
@@ -91,7 +91,7 @@ h1 {
 
 h1,
 h2 {
-    font-family: 'Inter Bold', 'Inter', Helvetica, sans-serif;
+    font-weight: 700;
 }
 
 form label {
