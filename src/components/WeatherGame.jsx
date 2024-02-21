@@ -18,7 +18,7 @@ const WeatherGame = () => {
 
     const [city, setCity] = useState([]);
     const [showTemp, setShowTemp] = useState(false);
-    const [userGuess, setUserGuess] = useState('');
+    const [userGuess, setUserGuess] = useState(0);
     const [showSettings, setShowSettings] = useState(false);
     const [loading, setLoading] = useState(false);
 
@@ -86,11 +86,7 @@ const WeatherGame = () => {
                             <label className="temperature-guess">
                                 Guess the temperature
                                 <div className="guess-input">
-                                    <input
-                                        type="text"
-                                        value={userGuess}
-                                        onChange={handleInput}
-                                    />
+                                    <input type="number" value={userGuess} onChange={handleInput} />
                                     <span>°{data.unitTemperature}</span>
                                 </div>
                             </label>

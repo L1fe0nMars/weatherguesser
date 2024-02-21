@@ -4,8 +4,8 @@ import { SaveDataContext } from '../context/SaveDataContext';
 const GameResult = (props) => {
     const { data } = useContext(SaveDataContext);
 
-    const temp = data.includeDecimals ? Number(props.city.main.temp.toFixed(1)) : Math.round(props.city.main.temp);
-    const userGuess = Number(props.userGuess);
+    const temp = data.includeDecimals ? props.city.main.temp.toFixed(1) : Math.round(props.city.main.temp);
+    const userGuess = data.includeDecimals ? Number(props.userGuess).toFixed(1) : Math.round(Number(props.userGuess));
     
     return (
         <div>
