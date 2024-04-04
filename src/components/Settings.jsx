@@ -2,8 +2,9 @@ import { useContext } from 'react';
 import { SaveDataContext } from '../context/SaveDataContext';
 import '../css/Settings.css';
 
-const Settings = (props) => {
+const Settings = ({ closeSettings }) => {
     const { data, saveData } = useContext(SaveDataContext);
+    const { unitType, timeFormat, includeDecimals, includeHighLow } = data;
 
     const onCheckboxChange = (event) => {
         const { name, checked } = event.target;
@@ -22,7 +23,7 @@ const Settings = (props) => {
     return (
         <div className="settings-bg">
             <div className="settings">
-                <button className="close" onClick={props.closeSettings}>
+                <button className="close" onClick={closeSettings}>
                     &times;
                 </button>
 
@@ -36,7 +37,7 @@ const Settings = (props) => {
                             <input 
                                 type="checkbox"
                                 name="unitType"
-                                checked={data.unitType === 'imperial'}
+                                checked={unitType === 'imperial'}
                                 onChange={onCheckboxChange}
                             />
                             <span>Imperial</span>
@@ -51,7 +52,7 @@ const Settings = (props) => {
                             <input 
                                 type="checkbox"
                                 name="timeFormat"
-                                checked={data.timeFormat === '12hr'}
+                                checked={timeFormat === '12hr'}
                                 onChange={onCheckboxChange}
                             />
                             <span>12hr</span>
@@ -66,7 +67,7 @@ const Settings = (props) => {
                         <input 
                             type="checkbox"
                             name="includeDecimals"
-                            checked={data.includeDecimals}
+                            checked={includeDecimals}
                             onChange={onCheckboxChange}
                         />
                         {/*<label data-on="Yes" data-off="No"></label>*/}
@@ -79,7 +80,7 @@ const Settings = (props) => {
                         <input 
                             type="checkbox"
                             name="includeHighLow"
-                            checked={data.includeHighLow}
+                            checked={includeHighLow}
                             onChange={onCheckboxChange}
                         />
                         {/*<label data-on="Yes" data-off="No"></label>*/}

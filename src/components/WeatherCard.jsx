@@ -15,15 +15,15 @@ const getLocalTime = (city, timeFormat) => {
     return formattedLocalTime;
 }
 
-const WeatherCard = (props) => {
+const WeatherCard = ({ city, showTemp}) => {
     const { data } = useContext(SaveDataContext);
+    const { includeDecimals, unitTemperature, includeHighLow, timeFormat } = data;
 
-    const city = props.city;
     const country = countryCodeToName[city.sys.country];
     const state = stateCodeToName[city.state] || '';
-    const temp = data.includeDecimals ? city.main.temp.toFixed(1) : Math.round(city.main.temp);
-    const tempMax = data.includeDecimals ? city.main.temp_max.toFixed(1) : Math.round(city.main.temp_max);
-    const tempMin = data.includeDecimals ? city.main.temp_min.toFixed(1) : Math.round(city.main.temp_min);
+    const temp = includeDecimals ? city.main.temp.toFixed(1) : Math.round(city.main.temp);
+    const tempMax = includeDecimals ? city.main.temp_max.toFixed(1) : Math.round(city.main.temp_max);
+    const tempMin = includeDecimals ? city.main.temp_min.toFixed(1) : Math.round(city.main.temp_min);
     const desc = city.weather[0].description;
     const description = desc.charAt(0).toUpperCase() + desc.slice(1);
     
@@ -46,22 +46,22 @@ const WeatherCard = (props) => {
                 </div>
 
                 {
-                    props.showTemp
+                    showTemp
                     ? (
-                        <h2>{`${temp}°${data.unitTemperature}`}</h2>
+                        <h2>{`${temp}°${unitTemperature}`}</h2>
                     )
                     : (
-                        <h2>{`???°${data.unitTemperature}`}</h2>
+                        <h2>{`???°${unitTemperature}`}</h2>
                     )
                 }
             </div>
 
-            {data.includeHighLow && <div className="high-low">
-                <p>{`High: ${tempMax}°${data.unitTemperature}`}</p>
-                <p>{`Low: ${tempMin}°${data.unitTemperature}`}</p>
+            {includeHighLow && <div className="high-low">
+                <p>{`High: ${tempMax}°${unitTemperature}`}</p>
+                <p>{`Low: ${tempMin}°${unitTemperature}`}</p>
             </div>}
             <p>{`Humidity: ${city.main.humidity}%`}</p>
-            <p>{`Local Time: ${getLocalTime(city, data.timeFormat)}`}</p>
+            <p>{`Local Time: ${getLocalTime(city, timeFormat)}`}</p>
         </div>
     );
 }

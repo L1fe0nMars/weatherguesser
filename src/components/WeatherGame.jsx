@@ -15,17 +15,18 @@ const getRandomCity = () => {
 
 const WeatherGame = () => {
     const { data } = useContext(SaveDataContext);
+    const { unitType, unitTemperature } = data;
 
     const [city, setCity] = useState([]);
     const [showTemp, setShowTemp] = useState(false);
-    const [userGuess, setUserGuess] = useState(0);
+    const [guessInput, setGuessInput] = useState(0);
     const [showSettings, setShowSettings] = useState(false);
     const [loading, setLoading] = useState(false);
 
     const getWeather = async (city) => {
         setLoading(true);
 
-        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?id=${city.id}&appid=045d974fe8c45d8b0e0bb4c31d908098&units=${data.unitType}`);
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?id=${city.id}&appid=045d974fe8c45d8b0e0bb4c31d908098&units=${unitType}`);
         const weatherData = await response.json();
         
         weatherData.state = city.state;
@@ -41,21 +42,21 @@ const WeatherGame = () => {
     const playGame = () => {
         getWeather(getRandomCity());
         setShowTemp(false);
-        setUserGuess('');
+        setGuessInput('');
     }
 
     const handleInput = (event) => {
         const value = event.target.value;
         
         if (!isNaN(value)) {
-            setUserGuess(value);
+            setGuessInput(value);
         }
     }
 
     const onSubmit = (event) => {
         event.preventDefault();
 
-        if (userGuess !== '') {
+        if (guessInput !== '') {
             setShowTemp(true);
         }
     }
@@ -86,8 +87,8 @@ const WeatherGame = () => {
                             <label className="temperature-guess">
                                 Guess the temperature
                                 <div className="guess-input">
-                                    <input type="number" value={userGuess} onChange={handleInput} />
-                                    <span>°{data.unitTemperature}</span>
+                                    <input type="number" value={guessInput} onChange={handleInput} />
+                                    <span>°{unitTemperature}</span>
                                 </div>
                             </label>
                             <button className="btn">Submit Answer</button>
@@ -97,7 +98,7 @@ const WeatherGame = () => {
             }
             
             {showTemp && <div className="result">
-                <GameResult city={city} userGuess={userGuess} />
+                <GameResult city={city} guessInput={Number(guessInput)} />
                 <button onClick={playGame}>Play Again</button>
             </div>}
         </main>
