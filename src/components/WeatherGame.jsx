@@ -6,8 +6,8 @@ import GameResult from './GameResult';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGear } from '@fortawesome/free-solid-svg-icons';
 
-const NUM_CITIES = 209579;
 const cityList = require('../city-list.json');
+const NUM_CITIES = cityList.length;
 
 const getRandomCity = () => {
     return cityList[Math.floor(Math.random() * NUM_CITIES)];

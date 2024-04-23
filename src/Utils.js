@@ -247,7 +247,9 @@ export const countryCodeToName = {
     'YE': 'Yemen',
     'ZM': 'Zambia',
     'ZW': 'Zimbabwe',
-    'AX': 'Åland Islands'
+    'AX': 'Åland Islands',
+    'XK': 'Kosovo',
+    'WS': 'Samoa'
 }
 
 export const stateCodeToName = {
@@ -300,5 +302,7 @@ export const stateCodeToName = {
     'WA': 'Washington',
     'WV': 'West Virginia',
     'WI': 'Wisconsin',
-    'WY': 'Wyoming'
+    'WY': 'Wyoming',
+    'DC': 'District of Columbia',
+    '00': 'American Samoa'
 }
