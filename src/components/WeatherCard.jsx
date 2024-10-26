@@ -29,15 +29,7 @@ const WeatherCard = ({ city, showTemp}) => {
     
     return (
         <div className="weather-card">
-            {
-                state.length > 0
-                ? (
-                    <h1>{`${city.name}, ${state}, ${country}`}</h1>
-                )
-                : (
-                    <h1>{`${city.name}, ${country}`}</h1>
-                )
-            }
+            <h1>{`${city.name}, ${state.length > 0 ? state + ', ' : ''}${country}`}</h1>
 
             <div className="weather-info-main">
                 <div className="weather-info-pic">

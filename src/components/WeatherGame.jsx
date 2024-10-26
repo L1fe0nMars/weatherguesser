@@ -6,7 +6,8 @@ import GameResult from './GameResult';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGear } from '@fortawesome/free-solid-svg-icons';
 
-const cityList = require('../city-list.json');
+const cityListJSON = require('../city-list.json');
+const cityList = cityListJSON.filter(city => city.country !== '');
 const NUM_CITIES = cityList.length;
 
 const getRandomCity = () => {
@@ -15,7 +16,7 @@ const getRandomCity = () => {
 
 const WeatherGame = () => {
     const { data } = useContext(SaveDataContext);
-    const { unitType, unitTemperature } = data;
+    const { unitType, unitTemperature, includeDecimals } = data;
 
     const [city, setCity] = useState([]);
     const [showTemp, setShowTemp] = useState(false);
@@ -87,7 +88,7 @@ const WeatherGame = () => {
                             <label className="temperature-guess">
                                 Guess the temperature
                                 <div className="guess-input">
-                                    <input type="number" value={guessInput} onChange={handleInput} />
+                                    <input type="number" value={guessInput} onChange={handleInput} step={includeDecimals ? 0.1 : 1} min={-200} max={200} autoFocus />
                                     <span>°{unitTemperature}</span>
                                 </div>
                             </label>
